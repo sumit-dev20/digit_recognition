@@ -2,14 +2,16 @@ import streamlit as st
 import numpy as np
 import cv2
 from streamlit_drawable_canvas import st_canvas
-import pickle
+import dill
+from tensorflow.keras.models import load_model
+
 
 st.set_page_config(page_title="Digit Recognition", page_icon="🔢")
 
 st.title("🔢 Handwritten Digit Recognition")
 st.write("Draw a digit (0-9) below and let the model recognize it!")
 
-model = pickle.load(open('model.pkl','rb'))
+model = load_model('model.keras')
 
 # -------------------------------
 # Drawing Canvas
